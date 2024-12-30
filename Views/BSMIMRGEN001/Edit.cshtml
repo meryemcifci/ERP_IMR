@@ -1,0 +1,52 @@
+﻿@model ERP_IMR.Models.BSMIMRGEN001
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Edit</h1>
+
+<h4>BSMIMRGEN001</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="COMCODE" />
+            <div class="form-group">
+                <label asp-for="COMTEXT" class="control-label"></label>
+                <input asp-for="COMTEXT" class="form-control" />
+                <span asp-validation-for="COMTEXT" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ADDRESS1" class="control-label"></label>
+                <input asp-for="ADDRESS1" class="form-control" />
+                <span asp-validation-for="ADDRESS1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ADDRESS2" class="control-label"></label>
+                <input asp-for="ADDRESS2" class="form-control" />
+                <span asp-validation-for="ADDRESS2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CITYCODE" class="control-label"></label>
+                <input asp-for="CITYCODE" class="form-control" />
+                <span asp-validation-for="CITYCODE" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="COUNTRYCODE" class="control-label"></label>
+                <input asp-for="COUNTRYCODE" class="form-control" />
+                <span asp-validation-for="COUNTRYCODE" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

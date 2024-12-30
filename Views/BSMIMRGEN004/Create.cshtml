@@ -1,0 +1,46 @@
+﻿@model ERP_IMR.Models.BSMIMRGEN004
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Create</h1>
+
+<h4>BSMIMRGEN004</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="CITYCODE" class="control-label"></label>
+                <input asp-for="CITYCODE" class="form-control" />
+                <span asp-validation-for="CITYCODE" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="COMCODE" class="control-label"></label>
+                <input asp-for="COMCODE" class="form-control" />
+                <span asp-validation-for="COMCODE" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CITYTEXT" class="control-label"></label>
+                <input asp-for="CITYTEXT" class="form-control" />
+                <span asp-validation-for="CITYTEXT" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="COUNTRYCODE" class="control-label"></label>
+                <input asp-for="COUNTRYCODE" class="form-control" />
+                <span asp-validation-for="COUNTRYCODE" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

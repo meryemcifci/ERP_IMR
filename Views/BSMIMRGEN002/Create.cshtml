@@ -1,0 +1,41 @@
+﻿@model ERP_IMR.Models.BSMIMRGEN002
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Create</h1>
+
+<h4>BSMIMRGEN002</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="COMCODE" class="control-label"></label>
+                <input asp-for="COMCODE" class="form-control" />
+                <span asp-validation-for="COMCODE" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LANCODE" class="control-label"></label>
+                <input asp-for="LANCODE" class="form-control" />
+                <span asp-validation-for="LANCODE" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LANTEXT" class="control-label"></label>
+                <input asp-for="LANTEXT" class="form-control" />
+                <span asp-validation-for="LANTEXT" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

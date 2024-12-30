@@ -1,0 +1,31 @@
+﻿@model ERP_IMR.Models.BSMIMRGEN002
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>BSMIMRGEN002</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.COMCODE)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.COMCODE)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.LANTEXT)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.LANTEXT)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.LANCODE">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
