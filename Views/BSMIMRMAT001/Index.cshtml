@@ -10,39 +10,47 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.COMCODE)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DOCTYPETEXT)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ISPASSIVE)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.COMCODE)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DOCTYPETEXT)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ISPASSIVE)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.DOCTYPE">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.DOCTYPE">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.DOCTYPE">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+
+<div class="box" style="border: 2px solid brown; border-radius: 5px; padding: 15px; position: relative;">
+    <button onclick="window.location.href='@Url.Action("Index", "Support")';"
+            style="position: absolute; top: 10px; right: 10px; background-color: transparent; border: none; font-size: 20px; cursor: pointer;">
+        &times;
+    </button>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.COMCODE)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DOCTYPETEXT)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ISPASSIVE)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.COMCODE)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DOCTYPETEXT)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ISPASSIVE)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.DOCTYPE">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.DOCTYPE">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.DOCTYPE">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

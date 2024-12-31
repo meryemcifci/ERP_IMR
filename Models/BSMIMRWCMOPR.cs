@@ -15,7 +15,7 @@ namespace ERP_IMR.Models
         [Required]
         public string WCMDOCTYPE { get; set; }
 
-        [Key]
+      
         [MaxLength(25)] // VARCHAR(25)
         [Required]
         public string WCMDOCNUM { get; set; }
@@ -28,6 +28,7 @@ namespace ERP_IMR.Models
         [Required]
         public DateTime WCMDOCUNTIL { get; set; }
 
+        [Key]
         [MaxLength(4)] // VARCHAR(10)
         [Required]
         public string OPRDOCTYPE { get; set; }

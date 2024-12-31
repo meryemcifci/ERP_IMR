@@ -48,7 +48,7 @@ namespace ERP_IMR.Models
         [MaxLength(4)]
         public string WCMDOCTYPE { get; set; }
 
-        [MaxLength(4)]
+        [MaxLength(25)]
         public string WCMDOCNUM { get; set; }
 
         [MaxLength(4)]

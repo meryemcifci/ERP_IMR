@@ -4,6 +4,7 @@ using ERP_IMR.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ERP_IMR.Migrations
 {
     [DbContext(typeof(IMRDbContext))]
-    partial class IMRDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241230173318_LenghtUpdate")]
+    partial class LenghtUpdate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -894,11 +896,16 @@ namespace ERP_IMR.Migrations
 
             modelBuilder.Entity("ERP_IMR.Models.BSMIMRWCMOPR", b =>
                 {
-                    b.Property<string>("OPRDOCTYPE")
+                    b.Property<string>("WCMDOCNUM")
+                        .HasMaxLength(25)
+                        .HasColumnType("nvarchar(25)");
+
+                    b.Property<string>("COMCODE")
+                        .IsRequired()
                         .HasMaxLength(4)
                         .HasColumnType("nvarchar(4)");
 
-                    b.Property<string>("COMCODE")
+                    b.Property<string>("OPRDOCTYPE")
                         .IsRequired()
                         .HasMaxLength(4)
                         .HasColumnType("nvarchar(4)");
@@ -906,11 +913,6 @@ namespace ERP_IMR.Migrations
                     b.Property<DateTime>("WCMDOCFROM")
                         .HasMaxLength(10)
                         .HasColumnType("datetime2");
-
-                    b.Property<string>("WCMDOCNUM")
-                        .IsRequired()
-                        .HasMaxLength(25)
-                        .HasColumnType("nvarchar(25)");
 
                     b.Property<string>("WCMDOCTYPE")
                         .IsRequired()
@@ -921,7 +923,7 @@ namespace ERP_IMR.Migrations
                         .HasMaxLength(10)
                         .HasColumnType("datetime2");
 
-                    b.HasKey("OPRDOCTYPE");
+                    b.HasKey("WCMDOCNUM");
 
                     b.ToTable("BSMIMRWCMOPR");
                 });
