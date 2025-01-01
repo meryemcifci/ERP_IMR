@@ -7,12 +7,13 @@
 
 
 <style>
-    .box{
-        border-color:brown;
-    }
+  h4{
+      text-align:center;
+      color:brown;
+  }
 </style>
 
-
+<h4>Ürün Ağacı Destek Tablosu - BOM001</h4>
 <p>
     <a asp-action="Create" title="Create">
         <i class="fa fa-plus"></i>
@@ -58,10 +59,17 @@
                         @Html.DisplayFor(modelItem => item.ISPASSIVE)
                     </td>
                     <td>
-                        <a asp-action="Edit" asp-route-id="@item.DOCTYPE">Edit</a> |
-                        <a asp-action="Details" asp-route-id="@item.DOCTYPE">Details</a> |
-                        <a asp-action="Delete" asp-route-id="@item.DOCTYPE">Delete</a>
-                    </td>
+                        <a asp-action="Edit" asp-route-id="@item.DOCTYPE" title="Edit">
+                            <i class="fa fa-edit"></i>
+                        </a>
+                        |
+                        <a asp-action="Details" asp-route-id="@item.DOCTYPE" title="Details">
+                            <i class="fa fa-info-circle"></i>
+                        </a>
+                        |
+                        <a asp-action="Delete" asp-route-id="@item.DOCTYPE" title="Delete">
+                            <i class="fa fa-trash"></i>
+                        </a>
                 </tr>
             }
         </tbody>

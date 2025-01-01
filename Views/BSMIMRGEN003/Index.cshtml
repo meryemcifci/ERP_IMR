@@ -5,15 +5,20 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Index</h1>
-
+<style>
+    h4 {
+        text-align: center;
+        color: brown;
+    }
+</style>
+<h4>Ülke Destek Tablosu - GEN003</h4>
 <p>
     <a asp-action="Create" title="Create">
         <i class="fa fa-plus"></i>
     </a>
 </p>
 <head>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    
 <div class="box" style="border: 2px solid brown; border-radius: 5px; padding: 15px; position: relative;">
     <button onclick="window.location.href='@Url.Action("Index", "Support")';"
             style="position: absolute; top: 10px; right: 10px; background-color: transparent; border: none; font-size: 20px; cursor: pointer;">
@@ -47,12 +52,17 @@
                     @Html.DisplayFor(modelItem => item.COUNTRYTEXT)
                 </td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.COUNTRYCODE">Edit</a> |
-                            <i class="fa fa-edit"></i>
-                    <a asp-action="Details" asp-route-id="@item.COUNTRYCODE">Details</a> |
-                            <i class="fa fa-circle"></i>
-                    <a asp-action="Delete" asp-route-id="@item.COUNTRYCODE">Delete</a>
-                            <i class="fa fa-trash"></i>
+                    <a asp-action="Edit" asp-route-id="@item.COUNTRYCODE" title="Edit">
+                        <i class="fa fa-edit"></i>
+                    </a>
+                    |
+                    <a asp-action="Details" asp-route-id="@item.COUNTRYCODE" title="Details">
+                        <i class="fa fa-info-circle"></i>
+                    </a>
+                    |
+                    <a asp-action="Delete" asp-route-id="@item.COUNTRYCODE" title="Delete">
+                        <i class="fa fa-trash"></i>
+                    </a>
                 </td>
             </tr>
     }

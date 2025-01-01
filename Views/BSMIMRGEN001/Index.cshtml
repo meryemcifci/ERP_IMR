@@ -5,7 +5,13 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Index</h1>
+<style> 
+    h4{
+        text-align:center;
+        color:brown;
+    }
+</style>
+<h4>Firma Destek Tablosu - GEN001</h4>
 
 <p>
     <a asp-action="Create" title="Create">
@@ -58,12 +64,17 @@
                     @Html.DisplayFor(modelItem => item.COUNTRYCODE)
                 </td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.COMCODE" title="Edit"></a> |
-                        <i class="fa fa-edit"></i>
-                    <a asp-action="Details" asp-route-id="@item.COMCODE" title="Details"></a> |
+                     <a asp-action="Edit" asp-route-id="@item.COMCODE" title="Edit">
+                            <i class="fa fa-edit"></i>
+                    </a>
+                    |
+                    <a asp-action="Details" asp-route-id="@item.COMCODE" title="Details">
                         <i class="fa fa-info-circle"></i>
-                    <a asp-action="Delete" asp-route-id="@item.COMCODE" title="Delete"></a>
+                    </a>
+                    |
+                    <a asp-action="Delete" asp-route-id="@item.COMCODE" title="Delete">
                         <i class="fa fa-trash"></i>
+                    </a>
                 </td>
             </tr>
     }

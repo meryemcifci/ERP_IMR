@@ -4,11 +4,18 @@
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<h1>Index</h1>
+<style>
+    h4 {
+        text-align: center;
+        color: brown;
+    }
+</style>
+<h4>Operasyon Tipi Destek Tablosu - OPR001</h4>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create" title="Create">
+        <i class="fa fa-plus"></i>
+    </a>
 </p>
 
 <div class="box" style="border: 2px solid brown; border-radius: 5px; padding: 15px; position: relative;">
@@ -49,9 +56,17 @@
                     @Html.DisplayFor(modelItem => item.ISPASSIVE)
                 </td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.DOCTYPE">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.DOCTYPE">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.DOCTYPE">Delete</a>
+                        <a asp-action="Edit" asp-route-id="@item.DOCTYPE" title="Edit">
+                            <i class="fa fa-edit"></i>
+                        </a>
+                        |
+                        <a asp-action="Details" asp-route-id="@item.DOCTYPE" title="Details">
+                            <i class="fa fa-info-circle"></i>
+                        </a>
+                        |
+                        <a asp-action="Delete" asp-route-id="@item.DOCTYPE" title="Delete">
+                            <i class="fa fa-trash"></i>
+                        </a>
                 </td>
             </tr>
     }
