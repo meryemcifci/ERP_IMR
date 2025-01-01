@@ -5,12 +5,13 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Index</h1>
-
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create" title="Create">
+        <i class="fa fa-plus"></i>
+    </a>
 </p>
-
+<head>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 <div class="box" style="border: 2px solid brown; border-radius: 5px; padding: 15px; position: relative;">
     <button onclick="window.location.href='@Url.Action("Index", "Support")';"
             style="position: absolute; top: 10px; right: 10px; background-color: transparent; border: none; font-size: 20px; cursor: pointer;">
@@ -20,18 +21,20 @@
         <thead>
             <tr>
                 <th>
-                    @Html.DisplayNameFor(model => model.COMCODE)
+                    Firma Kodu
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.UNITTEXT)
+                    Birim Kodu
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.ISMAINUNIT)
+                    Birim Adı
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.MAINUNITCODE)
+                    Ana Ağırlık Birimi
                 </th>
-                <th></th>
+                <th>
+                    Ana Ağırlık Birim Kodu
+                </th>
             </tr>
         </thead>
         <tbody>
@@ -39,6 +42,9 @@
             <tr>
                 <td>
                     @Html.DisplayFor(modelItem => item.COMCODE)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UNITCODE)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.UNITTEXT)
@@ -51,11 +57,15 @@
                 </td>
                 <td>
                     <a asp-action="Edit" asp-route-id="@item.UNITCODE">Edit</a> |
+                            <i class="fa fa-edit"></i>
                     <a asp-action="Details" asp-route-id="@item.UNITCODE">Details</a> |
+                            <i class="fa fa-circle"></i>
                     <a asp-action="Delete" asp-route-id="@item.UNITCODE">Delete</a>
+                            <i class="fa fa-trash"></i>
                 </td>
             </tr>
     }
         </tbody>
     </table>
 </div>
+</head>

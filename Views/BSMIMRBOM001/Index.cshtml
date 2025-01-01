@@ -11,10 +11,12 @@
         border-color:brown;
     }
 </style>
-<h1>Index</h1>
+
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create" title="Create">
+        <i class="fa fa-plus"></i>
+    </a>
 </p>
 
 <div class="box" style="border: 2px solid brown; border-radius: 5px; padding: 15px; position: relative;">
@@ -26,15 +28,17 @@
         <thead>
             <tr>
                 <th>
-                    @Html.DisplayNameFor(model => model.COMCODE)
+                    Firma Kodu
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.DOCTYPETEXT)
+                    Ürün Ağacı Tipi
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.ISPASSIVE)
+                    Ürün Ağacı Tipi Açıklaması
                 </th>
-                <th></th>
+                <th>
+                    Pasif Mi?
+                </th>
             </tr>
         </thead>
         <tbody>
@@ -43,6 +47,9 @@
                 <tr>
                     <td>
                         @Html.DisplayFor(modelItem => item.COMCODE)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DOCTYPE)
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.DOCTYPETEXT)

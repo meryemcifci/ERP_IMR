@@ -5,11 +5,12 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Index</h1>
-
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create" title="Create">
+        <i class="fa fa-plus"></i>
+    </a>
 </p>
+<head>
 
 <div class="box" style="border: 2px solid brown; border-radius: 5px; padding: 15px; position: relative;">
     <button onclick="window.location.href='@Url.Action("Index", "Support")';"
@@ -20,12 +21,15 @@
         <thead>
             <tr>
                 <th>
-                    @Html.DisplayNameFor(model => model.COMCODE)
+                    Firma Kodu
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.LANTEXT)
+                    Dil Kodu
                 </th>
-                <th></th>
+                <th>
+                    Dil Açıklaması
+                </th>
+               
             </tr>
         </thead>
         <tbody>
@@ -35,15 +39,29 @@
                     @Html.DisplayFor(modelItem => item.COMCODE)
                 </td>
                 <td>
+                    @Html.DisplayFor(modelItem => item.LANCODE)
+                </td>
+                <td>
                     @Html.DisplayFor(modelItem => item.LANTEXT)
                 </td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.LANCODE">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.LANCODE">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.LANCODE">Delete</a>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.LANCODE" title="Edit">
+                            <i class="fa fa-edit"></i>
+                        </a>
+                        |
+                        <a asp-action="Details" asp-route-id="@item.LANCODE" title="Details">
+                            <i class="fa fa-info-circle"></i>
+                        </a>
+                        |
+                        <a asp-action="Delete" asp-route-id="@item.LANCODE" title="Delete">
+                            <i class="fa fa-trash"></i>
+                        </a>
+                    </td>
                 </td>
             </tr>
     }
         </tbody>
     </table>
 </div>
+</head>

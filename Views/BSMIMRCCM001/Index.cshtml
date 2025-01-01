@@ -20,15 +20,17 @@
         <thead>
             <tr>
                 <th>
-                    @Html.DisplayNameFor(model => model.COMCODE)
+                    Firma Kodu
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.DOCTYPETEXT)
+                    Maliyet Merkezi Tipi
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.ISPASSIVE)
+                    Maliyet Merkezi Tipi Açıklaması
                 </th>
-                <th></th>
+                <th>
+                    Pasif Mi?
+                </th>
             </tr>
         </thead>
         <tbody>
@@ -36,6 +38,9 @@
             <tr>
                 <td>
                     @Html.DisplayFor(modelItem => item.COMCODE)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DOCTYPE)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.DOCTYPETEXT)

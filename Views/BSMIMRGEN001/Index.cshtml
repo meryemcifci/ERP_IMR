@@ -8,9 +8,12 @@
 <h1>Index</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create" title="Create">
+        <i class="fa fa-plus"></i>
+    </a>
 </p>
-
+<head>
+   
 <div class="box" style="border: 2px solid brown; border-radius: 5px; padding: 15px; position: relative;">
     <button onclick="window.location.href='@Url.Action("Index", "Support")';"
             style="position: absolute; top: 10px; right: 10px; background-color: transparent; border: none; font-size: 20px; cursor: pointer;">
@@ -20,21 +23,20 @@
         <thead>
             <tr>
                 <th>
-                    @Html.DisplayNameFor(model => model.COMTEXT)
+                   Firma Kodu
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.ADDRESS1)
+                   Adres1
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.ADDRESS2)
+                   Adres2
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.CITYCODE)
+                    Şehir Kodu
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.COUNTRYCODE)
-                </th>
-                <th></th>
+                    Ülke Kodu
+                </th
             </tr>
         </thead>
         <tbody>
@@ -56,12 +58,16 @@
                     @Html.DisplayFor(modelItem => item.COUNTRYCODE)
                 </td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.COMCODE">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.COMCODE">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.COMCODE">Delete</a>
+                    <a asp-action="Edit" asp-route-id="@item.COMCODE" title="Edit"></a> |
+                        <i class="fa fa-edit"></i>
+                    <a asp-action="Details" asp-route-id="@item.COMCODE" title="Details"></a> |
+                        <i class="fa fa-info-circle"></i>
+                    <a asp-action="Delete" asp-route-id="@item.COMCODE" title="Delete"></a>
+                        <i class="fa fa-trash"></i>
                 </td>
             </tr>
     }
         </tbody>
     </table>
 </div>
+</head>
