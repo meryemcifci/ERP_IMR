@@ -1,0 +1,85 @@
+﻿
+@{
+    ViewData["Title"] = "CCMGetJoinedData";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Maliyet Merkezleri</h1>
+@model List<ERP_IMR.ViewModels.MaliyetViewModel>
+
+<style>
+    h4 {
+        text-align: center;
+        color: brown;
+    }
+</style>
+<h4>Maliyet Merkezleri - CCM</h4>
+<!-- Yeni Ekleme Butonu -->
+<a href="@Url.Action("Create", "CCM")" class="btn btn-success btn-sm mt-3">
+    <i class="fas fa-plus"></i>
+</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Firma Kodu</th>
+            <th>Malİiyet Merkezi Tipi</th>
+            <th>Malİiyet Merkezi Kodu</th>
+            <th>
+                Geçerlilik Başlangıç
+            </th>
+            <th>
+                Geçerlilik Bitiş
+            </th>
+            <th>
+                Ana Maliyet Merkezi Tipi
+            </th>
+            <th>
+                Ana Maliyet Merkezi Kodu
+            </th>
+            <th>
+                Silindi mi?
+            </th>
+            <th>
+                Pasif mi?
+            </th>
+            <th>
+               Maliyet Merkezi Kısa Açıklaması
+            </th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.COMCODE</td>
+                <td>@item.CCMDOCTYPE</td>
+                <td>@item.CCMDOCNUM</td>
+                <td>@item.CCMDOCFROM</td>
+                <td>@item.CCMDOCUNTIL</td>
+                <td>@item.MAINCCMDOCTYPE</td>
+                <td>@item.MAINCCMDOCNUM</td>
+                <td>@item.ISDELETED</td>
+                <td>@item.ISPASSIVE</td>
+                <td>@item.CCMSTEXT</td>
+                
+                <td>
+                    <!-- Detay Butonu -->
+                    <a href="@Url.Action("Detail", "Main", new { id = item.COMCODE })" class="btn btn-info btn-sm">
+                        <i class="fas fa-info-circle"></i>
+                    </a>
+                    <!-- Düzenleme Butonu -->
+                    <a href="@Url.Action("Edit", "Main", new { id = item.COMCODE })" class="btn btn-warning btn-sm">
+                        <i class="fas fa-edit"></i>
+                    </a>
+                    <!-- Silme Butonu -->
+                    <form action="@Url.Action("Delete", "Main", new { id = item.COMCODE })" method="post" style="display:inline;">
+                        <button type="submit" class="btn btn-danger btn-sm">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

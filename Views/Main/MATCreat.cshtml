@@ -1,0 +1,126 @@
+﻿@model ERP_IMR.ViewModels.MalzemeViewModel
+
+@{
+    ViewData["Title"] = "MATCreate";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Create</h1>
+
+<h4>MalzemeViewModel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="COMCODE" class="control-label"></label>
+                <input asp-for="COMCODE" class="form-control" />
+                <span asp-validation-for="COMCODE" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MATDOCNUM" class="control-label"></label>
+                <input asp-for="MATDOCNUM" class="form-control" />
+                <span asp-validation-for="MATDOCNUM" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MATSTEXT" class="control-label"></label>
+                <input asp-for="MATSTEXT" class="form-control" />
+                <span asp-validation-for="MATSTEXT" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MATLTEXT" class="control-label"></label>
+                <input asp-for="MATLTEXT" class="form-control" />
+                <span asp-validation-for="MATLTEXT" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MATDOCTYPE" class="control-label"></label>
+                <input asp-for="MATDOCTYPE" class="form-control" />
+                <span asp-validation-for="MATDOCTYPE" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SUPPLYTYPE" class="control-label"></label>
+                <input asp-for="SUPPLYTYPE" class="form-control" />
+                <span asp-validation-for="SUPPLYTYPE" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LANCODE" class="control-label"></label>
+                <input asp-for="LANCODE" class="form-control" />
+                <span asp-validation-for="LANCODE" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MATDOCFROM" class="control-label"></label>
+                <input asp-for="MATDOCFROM" class="form-control" />
+                <span asp-validation-for="MATDOCFROM" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MATDOCUNTIL" class="control-label"></label>
+                <input asp-for="MATDOCUNTIL" class="form-control" />
+                <span asp-validation-for="MATDOCUNTIL" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NETWEIGHT" class="control-label"></label>
+                <input asp-for="NETWEIGHT" class="form-control" />
+                <span asp-validation-for="NETWEIGHT" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NWUNIT" class="control-label"></label>
+                <input asp-for="NWUNIT" class="form-control" />
+                <span asp-validation-for="NWUNIT" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BRUTWEIGHT" class="control-label"></label>
+                <input asp-for="BRUTWEIGHT" class="form-control" />
+                <span asp-validation-for="BRUTWEIGHT" class="text-danger"></span>
+            </div>
+             <div class="form-group">
+                <label asp-for="BWUNIT" class="control-label"></label>
+                <input asp-for="BWUNIT" class="form-control" />
+                <span asp-validation-for="BWUNIT" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="STUNIT" class="control-label"></label>
+                <input asp-for="STUNIT" class="form-control" />
+                <span asp-validation-for="STUNIT" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="ISBOM" /> @Html.DisplayNameFor(model => model.ISBOM)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="BOMDOCTYPE" class="control-label"></label>
+                <input asp-for="BOMDOCTYPE" class="form-control" />
+                <span asp-validation-for="BOMDOCTYPE" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BOMDOCNUM" class="control-label"></label>
+                <input asp-for="BOMDOCNUM" class="form-control" />
+                <span asp-validation-for="BOMDOCNUM" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="ISROUTE" /> @Html.DisplayNameFor(model => model.ISROUTE)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="ROTDOCTYPE" class="control-label"></label>
+                <input asp-for="ROTDOCTYPE" class="form-control" />
+                <span asp-validation-for="ROTDOCTYPE" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ROTDOCNUM" class="control-label"></label>
+                <input asp-for="ROTDOCNUM" class="form-control" />
+                <span asp-validation-for="ROTDOCNUM" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

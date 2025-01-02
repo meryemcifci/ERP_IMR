@@ -1,8 +1,271 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock and Calendar</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f9;
+        }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+        .container {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+
+        .calendar, .clock {
+            background: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+        .calendar {
+            width: 400px; /* Takvim genişliği artırıldı */
+            background: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .calendar-header {
+            background-color: #83343f;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            border-radius: 10px 10px 0 0;
+        }
+
+            .calendar-header button {
+                background: none;
+                border: none;
+                color: white;
+                font-size: 18px;
+                cursor: pointer;
+            }
+
+        .calendar-days {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            padding: 10px;
+        }
+
+        .day {
+            text-align: center;
+            padding: 10px;
+            border: 1px solid #ddd;
+            cursor: pointer;
+        }
+
+            .day:hover {
+                background-color: #f0f0f0;
+            }
+
+            .day.inactive {
+                color: #aaa;
+                pointer-events: none;
+            }
+
+        .clock {
+            width: 300px; /* Saat genişliği büyütüldü */
+            height: 300px; /* Saat yüksekliği büyütüldü */
+            border: 15px solid #83343f; /* Çerçeve genişliği büyütüldü */
+            border-radius: 50%; /* Çerçeve dairesel kaldı */
+            background-color: #fff;
+            position: relative;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+            .clock .hand {
+                position: absolute;
+                width: 50%; /* Akrep ve yelkovanın uzunluk oranı sabit */
+                height: 3px; /* Çizgilerin kalınlığı ayarlandı */
+                background-color: black;
+                top: 50%;
+                left: 50%;
+                transform-origin: 0%; /* Dönerken başlangıç noktası */
+                transform: rotate(90deg);
+                transition: transform 0.05s ease-in-out;
+            }
+
+            .clock .hour {
+                height: 6px; /* Akrep kalınlaştırıldı */
+                background-color: #333;
+                width: 35%; /* Akrep daha kısa bırakıldı */
+            }
+
+            .clock .minute {
+                background-color: #666;
+                width: 45%; /* Yelkovan orta uzunlukta */
+            }
+
+            .clock .second {
+                height: 2px; /* Saniye daha ince */
+                background-color: #83343f;
+                width: 50%; /* Saniye en uzun */
+            }
+
+        .center {
+            width: 15px; /* Merkez noktası büyütüldü */
+            height: 15px;
+            background-color: #83343f;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .container {
+            display: flex;
+            gap: 30px; /* Elemanlar arasında daha fazla boşluk */
+            align-items: flex-start;
+            justify-content: center;
+        }
+
+        .clock-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Saat ve sık kullanılanlar merkezde hizalanır */
+            gap: 30px; /* Saat ve sık kullanılanlar arasında daha fazla boşluk */
+        }
+
+        .quick-access {
+            width: 300px; /* Genişlik artırıldı */
+            text-align: center;
+            background: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            padding: 20px; /* İç dolgu artırıldı */
+        }
+
+            .quick-access h2 {
+                font-size: 22px; /* Başlık boyutu büyütüldü */
+                margin-bottom: 20px;
+                color: #83343f;
+            }
+
+        .support-button {
+            display: block;
+            width: 90%; /* Butonlar daha geniş */
+            margin: 10px auto; /* Butonlar merkezlenir */
+            padding: 15px; /* Daha fazla dolgu */
+            background-color: #83343f;
+            color: white;
+            border: none;
+            border-radius: 8px; /* Köşeler yumuşatıldı */
+            font-size: 18px; /* Yazı boyutu büyütüldü */
+            cursor: pointer;
+        }
+
+            .quick-access-button:hover {
+                background-color: #83343f;
+            }
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="calendar">
+            <div class="calendar-header">
+                <button id="prevMonth">&lt;</button>
+                <span id="monthYear"></span>
+                <button id="nextMonth">&gt;</button>
+            </div>
+            <div class="calendar-days" id="calendarDays"></div>
+        </div>
+        <div class="clock">
+            <div class="hand hour" id="hourHand"></div>
+            <div class="hand minute" id="minuteHand"></div>
+            <div class="hand second" id="secondHand"></div>
+            <div class="center"></div>
+        </div>
+        <div class="quick-access">
+            <h2>Sık Kullanılanlar</h2>
+            <a heref class="support-button text-light" asp-area="" asp-controller="BSMIMRMAT001" asp-action="Index">Malzeme Kartları</a>
+            <a heref class="support-button text-light" asp-area="" asp-controller="BSMIMRCCM001" asp-action="Index">Maliyet Merkezi</a>
+        </div>
+    </div>
+
+    <script>
+        const calendarDays = document.getElementById('calendarDays');
+        const monthYear = document.getElementById('monthYear');
+        const prevMonth = document.getElementById('prevMonth');
+        const nextMonth = document.getElementById('nextMonth');
+
+        let currentDate = new Date();
+
+        function renderCalendar(date) {
+            const year = date.getFullYear();
+            const month = date.getMonth();
+
+            monthYear.textContent = date.toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'long',
+            });
+
+            calendarDays.innerHTML = '';
+
+            const firstDay = new Date(year, month, 1).getDay();
+            const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+            for (let i = 0; i < firstDay; i++) {
+                const emptyCell = document.createElement('div');
+                emptyCell.classList.add('day', 'inactive');
+                calendarDays.appendChild(emptyCell);
+            }
+
+            for (let day = 1; day <= daysInMonth; day++) {
+                const dayCell = document.createElement('div');
+                dayCell.classList.add('day');
+                dayCell.textContent = day;
+                calendarDays.appendChild(dayCell);
+            }
+        }
+
+        prevMonth.addEventListener('click', () => {
+            currentDate.setMonth(currentDate.getMonth() - 1);
+            renderCalendar(currentDate);
+        });
+
+        nextMonth.addEventListener('click', () => {
+            currentDate.setMonth(currentDate.getMonth() + 1);
+            renderCalendar(currentDate);
+        });
+
+        renderCalendar(currentDate);
+
+        function updateClock() {
+            const now = new Date();
+            const hours = now.getHours();
+            const minutes = now.getMinutes();
+            const seconds = now.getSeconds();
+
+            const hourHand = document.getElementById('hourHand');
+            const minuteHand = document.getElementById('minuteHand');
+            const secondHand = document.getElementById('secondHand');
+
+            const hourDegrees = (hours % 12) * 30 + minutes * 0.5;
+            const minuteDegrees = minutes * 6;
+            const secondDegrees = seconds * 6;
+
+            hourHand.style.transform = `rotate(${90 + hourDegrees}deg)`;
+            minuteHand.style.transform = `rotate(${90 + minuteDegrees}deg)`;
+            secondHand.style.transform = `rotate(${90 + secondDegrees}deg)`;
+        }
+
+        setInterval(updateClock, 1000);
+        updateClock();
+    </script>
+</body>
+</html>
