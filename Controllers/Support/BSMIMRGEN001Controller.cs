@@ -158,5 +158,6 @@ namespace ERP_IMR.Controllers.Support
         {
           return (_context.BSMIMRGEN001?.Any(e => e.COMCODE == id)).GetValueOrDefault();
         }
+        
     }
 }
