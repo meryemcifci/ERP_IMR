@@ -1,0 +1,179 @@
+﻿@model IEnumerable<ERP_IMR.Models.Deneme.BSMIMRMATHEADTEXT>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<style>
+    h4 {
+        text-align: center;
+        color: brown;
+    }
+</style>
+<h4>Malzeme Merkezi Tipi Ana Tablosu - MAT001</h4>
+
+<p>
+    <a asp-action="Create" title="Create">
+        <i class="fa fa-plus"></i>
+    </a>
+</p>
+<div class="box" style="border: 2px solid brown; border-radius: 5px; padding: 15px; position: absolute;">
+    <button onclick="window.location.href='@Url.Action("Index", "Deneme")';"
+            style="position: absolute; top: 10px; right: 10px; background-color: transparent; border: none; font-size: 20px; cursor: pointer;">
+        &times;
+    </button>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.COMCODE)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MATDOCTYPE)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MATDOCFROM)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MATDOCUNTIL)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SUPPLYTYPE)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.STUNIT)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NETWEIGHT)
+                </th>
+                @* <th>
+                    @Html.DisplayNameFor(model => model.NWUNIT)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.BRUTWEIGHT)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.BWUNIT)
+                </th> *@
+                <th>
+                    @Html.DisplayNameFor(model => model.ISBOM)
+                </th>
+             @*    <th>
+                    @Html.DisplayNameFor(model => model.BOMDOCTYPE)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.BOMDOCNUM)
+                </th> *@
+                <th>
+                    @Html.DisplayNameFor(model => model.ISROUTE)
+                </th>
+                @* <th>
+                    @Html.DisplayNameFor(model => model.ROTDOCTYPE)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ROTDOCNUM)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ISDELETED)
+                </th> *@
+                <th>
+                    @Html.DisplayNameFor(model => model.ISPASSIVE)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LANCODE)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MATSTEXT)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MATLTEXT)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+    @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.COMCODE)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MATDOCTYPE)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MATDOCFROM)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MATDOCUNTIL)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SUPPLYTYPE)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.STUNIT)
+                </td>
+                 <td>
+                    @Html.DisplayFor(modelItem => item.NETWEIGHT)
+                 </td>@*
+                <td>
+                    @Html.DisplayFor(modelItem => item.NWUNIT)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BRUTWEIGHT)
+                </td> 
+                <td>
+                    @Html.DisplayFor(modelItem => item.BWUNIT)
+                </td>*@
+                <td>
+                    @Html.DisplayFor(modelItem => item.ISBOM)
+                </td>
+               @*  <td>
+                    @Html.DisplayFor(modelItem => item.BOMDOCTYPE)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BOMDOCNUM)
+                </td> *@
+                <td>
+                    @Html.DisplayFor(modelItem => item.ISROUTE)
+                </td>
+                @* <td>
+                    @Html.DisplayFor(modelItem => item.ROTDOCTYPE)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ROTDOCNUM)
+                </td> *@
+               @*  <td>
+                    @Html.DisplayFor(modelItem => item.ISDELETED)
+                </td> *@
+                <td>
+                    @Html.DisplayFor(modelItem => item.ISPASSIVE)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LANCODE)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MATSTEXT)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MATLTEXT)
+                </td>
+                <td>
+                        <a asp-action="Edit" asp-route-id="@item.MATDOCNUM" title="Edit">
+                            <i class="fa fa-edit"></i>
+                        </a>
+                        |
+                        <a asp-action="Details" asp-route-id="@item.MATDOCNUM" title="Details">
+                            <i class="fa fa-info-circle"></i>
+                        </a>
+                        |
+                        <a asp-action="Delete" asp-route-id="@item.MATDOCNUM" title="Delete">
+                            <i class="fa fa-trash"></i>
+                        </a>
+                </td>
+            </tr>
+    }
+        </tbody>
+    </table>
+</div>

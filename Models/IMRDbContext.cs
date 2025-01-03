@@ -1,6 +1,7 @@
 ﻿
 using Microsoft.EntityFrameworkCore;
 using ERP_IMR.ViewModels;
+using ERP_IMR.Models.Deneme;
 
 namespace ERP_IMR.Models
 {
@@ -29,6 +30,11 @@ namespace ERP_IMR.Models
         public DbSet<BSMIMRWCMTEXT> BSMIMRWCMTEXT { get; set; }
         public DbSet<BSMIMRROTOPRCONTENT> BSMIMRROTOPRCONTENT { get; set; }
         public DbSet<BSMIMRROTBOMCONTENT> BSMIMRROTBOMCONTENT { get; set; }
+        public DbSet<BSMIMRBOMHEADCONTENT> BSMIMRBOMHEADCONTENT { get; set; }
+        public DbSet<BSMIMRCCMHEADTEXT> BSMIMRCCMHEADTEXT { get; set; }
+        public DbSet<BSMIMRMATHEADTEXT> BSMIMRMATHEADTEXT { get; set; }
+        public DbSet<BSMIMRROTHEADCONTENT> BSMIMRROTHEADCONTENT { get; set; }
+        public DbSet<BSMIMRWCMHEADTEXTOPR> BSMIMRWCMHEADTEXTOPR { get; set; }
 
         public IMRDbContext(DbContextOptions<IMRDbContext> options) : base(options)
         {
@@ -41,6 +47,7 @@ namespace ERP_IMR.Models
         {
             modelBuilder.Entity<MalzemeViewModel>().HasNoKey();
         }
+
     }
   
 }

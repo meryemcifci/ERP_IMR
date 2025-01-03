@@ -1,0 +1,128 @@
+﻿@model IEnumerable<ERP_IMR.Models.Deneme.BSMIMRBOMHEADCONTENT>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    h4 {
+        text-align: center;
+        color: brown;
+    }
+</style>
+<h4>Ürün Ağacı Ana Tablosu - BOM001</h4>
+
+<p>
+    <a asp-action="Create" title="Create">
+        <i class="fa fa-plus"></i>
+    </a>
+</p>
+<div class="box" style="border: 2px solid brown; border-radius: 5px; padding: 15px; position: relative;">
+    <button onclick="window.location.href='@Url.Action("Index", "Deneme")';"
+            style="position: absolute; top: 10px; right: 10px; background-color: transparent; border: none; font-size: 20px; cursor: pointer;">
+        &times;
+    </button>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.COMCODE)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.BOMDOCTYPE)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.BOMDOCFROM)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.BOMDOCUNTIL)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MATDOCTYPE)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MATDOCNUM)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.QUANTITY)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ISDELETED)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ISPASSIVE)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DRAWNUM)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CONTENTNUM)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.COMPONENT)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.COMPBOMDOCTYPE)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.COMPBOMDOCNUM)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+    @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.COMCODE)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BOMDOCTYPE)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BOMDOCFROM)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BOMDOCUNTIL)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MATDOCTYPE)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MATDOCNUM)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.QUANTITY)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ISDELETED)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ISPASSIVE)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DRAWNUM)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CONTENTNUM)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.COMPONENT)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.COMPBOMDOCTYPE)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.COMPBOMDOCNUM)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.BOMDOCNUM">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.BOMDOCNUM">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.BOMDOCNUM">Delete</a>
+                </td>
+            </tr>
+    }
+        </tbody>
+    </table>
+</div>

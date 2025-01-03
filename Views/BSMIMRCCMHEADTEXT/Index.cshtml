@@ -1,0 +1,117 @@
+﻿@model IEnumerable<ERP_IMR.Models.Deneme.BSMIMRCCMHEADTEXT>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    h4 {
+        text-align: center;
+        color: brown;
+    }
+</style>
+<h4>Maliyet Merkezi Tipi Ana Tablosu - CCM001</h4>
+
+<p>
+    <a asp-action="Create" title="Create">
+        <i class="fa fa-plus"></i>
+    </a>
+</p>
+<div class="box" style="border: 2px solid brown; border-radius: 5px; padding: 15px; position: absolute;">
+    <button onclick="window.location.href='@Url.Action("Index", "Deneme")';"
+            style="position: absolute; top: 10px; right: 10px; background-color: transparent; border: none; font-size: 20px; cursor: pointer;">
+        &times;
+    </button>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.COMCODE)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CCMDOCTYPE)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CCMDOCFROM)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CCMDOCUNTIL)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MAINCCMDOCTYPE)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MAINCCMDOCNUM)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ISDELETED)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ISPASSIVE)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LANCODE)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CCMSTEXT)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CCMLTEXT)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.COMCODE)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CCMDOCTYPE)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CCMDOCFROM)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CCMDOCUNTIL)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MAINCCMDOCTYPE)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MAINCCMDOCNUM)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ISDELETED)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ISPASSIVE)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LANCODE)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CCMSTEXT)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CCMLTEXT)
+            </td>
+            <td>
+                        <a asp-action="Edit" asp-route-id="@item.CCMDOCTYPE" title="Edit">
+                        <i class="fa fa-edit"></i>
+                    </a>
+                    |
+                        <a asp-action="Details" asp-route-id="@item.CCMDOCTYPE" title="Details">
+                        <i class="fa fa-info-circle"></i>
+                    </a>
+                    |
+                        <a asp-action="Delete" asp-route-id="@item.CCMDOCTYPE" title="Delete">
+                        <i class="fa fa-trash"></i>
+                    </a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

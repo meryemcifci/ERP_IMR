@@ -4,6 +4,7 @@ using ERP_IMR.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ERP_IMR.Migrations
 {
     [DbContext(typeof(IMRDbContext))]
-    partial class IMRDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250102190849_deneme2_tables")]
+    partial class deneme2_tables
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -977,6 +979,7 @@ namespace ERP_IMR.Migrations
                         .HasColumnType("nvarchar(25)");
 
                     b.Property<DateTime>("BOMDOCFROM")
+                        .HasMaxLength(10)
                         .HasColumnType("datetime2");
 
                     b.Property<string>("BOMDOCTYPE")
@@ -985,6 +988,7 @@ namespace ERP_IMR.Migrations
                         .HasColumnType("nvarchar(4)");
 
                     b.Property<DateTime>("BOMDOCUNTIL")
+                        .HasMaxLength(10)
                         .HasColumnType("datetime2");
 
                     b.Property<string>("COMCODE")
@@ -1049,6 +1053,7 @@ namespace ERP_IMR.Migrations
                         .HasColumnType("nvarchar(25)");
 
                     b.Property<DateTime>("CCMDOCFROM")
+                        .HasMaxLength(10)
                         .HasColumnType("datetime2");
 
                     b.Property<string>("CCMDOCTYPE")
@@ -1057,6 +1062,7 @@ namespace ERP_IMR.Migrations
                         .HasColumnType("nvarchar(4)");
 
                     b.Property<DateTime>("CCMDOCUNTIL")
+                        .HasMaxLength(10)
                         .HasColumnType("datetime2");
 
                     b.Property<string>("CCMLTEXT")
@@ -1271,6 +1277,7 @@ namespace ERP_IMR.Migrations
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<DateTime>("ROTDOCFROM")
+                        .HasMaxLength(10)
                         .HasColumnType("datetime2");
 
                     b.Property<string>("ROTDOCTYPE")
@@ -1279,6 +1286,7 @@ namespace ERP_IMR.Migrations
                         .HasColumnType("nvarchar(4)");
 
                     b.Property<DateTime>("ROTDOCUNTIL")
+                        .HasMaxLength(10)
                         .HasColumnType("datetime2");
 
                     b.Property<decimal>("SETUPTIME")
@@ -1348,6 +1356,7 @@ namespace ERP_IMR.Migrations
                         .HasColumnType("nvarchar(4)");
 
                     b.Property<DateTime>("WCMDOCFROM")
+                        .HasMaxLength(10)
                         .HasColumnType("datetime2");
 
                     b.Property<string>("WCMDOCTYPE")
@@ -1356,6 +1365,7 @@ namespace ERP_IMR.Migrations
                         .HasColumnType("nvarchar(4)");
 
                     b.Property<DateTime>("WCMDOCUNTIL")
+                        .HasMaxLength(10)
                         .HasColumnType("datetime2");
 
                     b.Property<string>("WCMLTEXT")

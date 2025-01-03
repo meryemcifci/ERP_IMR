@@ -1,0 +1,156 @@
+﻿@model IEnumerable<ERP_IMR.Models.Deneme.BSMIMRROTHEADCONTENT>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.COMCODE)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ROTDOCTYPE)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ROTDOCFROM)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ROTDOCUNTIL)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MATDOCTYPE)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MATDOCNUM)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.QUANTITY)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ISDELETED)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ISPASSIVE)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DRAWNUM)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OPRNUM)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BOMDOCTYPE)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BOMDOCNUM)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CONTENTNUM)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.COMPONENT)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WCMDOCTYPE)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WCMDOCNUM)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OPRDOCTYPE)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SETUPTIME)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MACHINETIME)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LABOURTIME)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.COMCODE)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ROTDOCTYPE)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ROTDOCFROM)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ROTDOCUNTIL)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MATDOCTYPE)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MATDOCNUM)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QUANTITY)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ISDELETED)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ISPASSIVE)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DRAWNUM)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OPRNUM)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BOMDOCTYPE)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BOMDOCNUM)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CONTENTNUM)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.COMPONENT)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WCMDOCTYPE)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WCMDOCNUM)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OPRDOCTYPE)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SETUPTIME)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MACHINETIME)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LABOURTIME)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ROTDOCNUM">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ROTDOCNUM">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ROTDOCNUM">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

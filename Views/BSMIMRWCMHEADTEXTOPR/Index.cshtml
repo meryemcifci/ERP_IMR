@@ -1,0 +1,145 @@
+﻿@model IEnumerable<ERP_IMR.Models.Deneme.BSMIMRWCMHEADTEXTOPR>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+<style>
+    h4 {
+        text-align: center;
+        color: brown;
+    }
+</style>
+<h4>İş Merkezi Tipi Ana Tablosu - WCM001</h4>
+
+<p>
+    <a asp-action="Create" title="Create">
+        <i class="fa fa-plus"></i>
+    </a>
+</p>
+<div class="box" style="border: 2px solid brown; border-radius: 5px; padding: 15px; position: absolute;">
+    <button onclick="window.location.href='@Url.Action("Index", "Deneme")';"
+            style="position: absolute; top: 10px; right: 10px; background-color: transparent; border: none; font-size: 20px; cursor: pointer;">
+        &times;
+    </button>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.COMCODE)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.WCMDOCTYPE)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.WCMDOCFROM)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.WCMDOCUNTIL)
+                </th>
+               @*  <th>
+                    @Html.DisplayNameFor(model => model.MAINWCMDOCTYPE)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MAINWCMDOCNUM)
+                </th> 
+                <th>
+                    @Html.DisplayNameFor(model => model.CCMDOCTYPE)
+                </th>*@
+                <th>
+                    @Html.DisplayNameFor(model => model.CCMDOCNUM)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.WORKTIME)
+                </th>
+            @*     <th>
+                    @Html.DisplayNameFor(model => model.ISDELETED)
+                </th> *@
+                <th>
+                    @Html.DisplayNameFor(model => model.ISPASSIVE)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LANCODE)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.WCMSTEXT)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.WCMLTEXT)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.OPRDOCTYPE)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+    @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.COMCODE)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.WCMDOCTYPE)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.WCMDOCFROM)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.WCMDOCUNTIL)
+                </td>
+                @* <td>
+                    @Html.DisplayFor(modelItem => item.MAINWCMDOCTYPE)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MAINWCMDOCNUM)
+                </td> *@
+               @*  <td>
+                    @Html.DisplayFor(modelItem => item.CCMDOCTYPE)
+                </td> *@
+                <td>
+                    @Html.DisplayFor(modelItem => item.CCMDOCNUM)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.WORKTIME)
+                </td>
+               @*  <td>
+                    @Html.DisplayFor(modelItem => item.ISDELETED)
+                </td> *@
+                <td>
+                    @Html.DisplayFor(modelItem => item.ISPASSIVE)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LANCODE)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.WCMSTEXT)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.WCMLTEXT)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OPRDOCTYPE)
+                </td>
+                <td>
+                        <a asp-action="Edit" asp-route-id="@item.WCMDOCTYPE" title="Edit">
+                            <i class="fa fa-edit"></i>
+                        </a>
+                        |
+                        <a asp-action="Details" asp-route-id="@item.WCMDOCTYPE" title="Details">
+                            <i class="fa fa-info-circle"></i>
+                        </a>
+                        |
+                        <a asp-action="Delete" asp-route-id="@item.WCMDOCTYPE" title="Delete">
+                            <i class="fa fa-trash"></i>
+                        </a>
+                </td>
+            </tr>
+    }
+        </tbody>
+    </table>
+</div>

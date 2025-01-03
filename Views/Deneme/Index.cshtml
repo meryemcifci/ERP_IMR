@@ -1,0 +1,63 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support Layout</title>
+    <style>
+        h2 {
+            text-align: center;
+            color: darkslategrey;
+        }
+
+        .support-button {
+            padding: 10px;
+            background-color: #7e3338;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 14px;
+            cursor: pointer;
+            text-align: center;
+            transition: background-color 0.3s;
+        }
+
+            .support-button:hover {
+                background-color: #a14045;
+            }
+
+            .support-button:focus {
+                outline: none;
+            }
+
+        .support-buttons-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(3, auto);
+            gap: 20px;
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <h2>DENEME </h2>
+    <div class="support-buttons-container">
+        <a heref class="support-button text-light" asp-area="" asp-controller="BSMIMRMATHEADTEXT" asp-action="Index">Malzeme Kartları</a>
+        <a heref class="support-button text-light" asp-area="" asp-controller="BSMIMRCCMHEADTEXT" asp-action="Index">Maliyet Merkezleri</a>
+        <a heref class="support-button text-light" asp-area="" asp-controller="BSMIMRWCMHEADTEXTOPR" asp-action="Index">İş Merkezleri</a>
+        <a heref class="support-button text-light" asp-area="" asp-controller="BSMIMRROTHEADCONTENT" asp-action="Index">Rota </a>
+        <a heref class="support-button text-light" asp-area="" asp-controller="BSMIMROPR001" asp-action="Index">Operasyonlar </a>
+        <a heref class="support-button text-light" asp-area="" asp-controller="BSMIMRBOMHEADCONTENT" asp-action="Index">Ürün Ağacı</a>
+    </div>
+</body>
+</html>
+
+
+
